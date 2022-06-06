@@ -26,6 +26,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .time {
@@ -59,13 +60,15 @@ body {
 .hour {
     background: -webkit-linear-gradient(90deg, #634dff, #5fd4ff);
     -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text
+    -webkit-background-clip: text;
+    background-clip: none; 
 }
 
 .minutes {
     background: -webkit-linear-gradient(90deg, #ff5e9a, #ffb960);
     -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text
+    -webkit-background-clip: text;
+    background-clip: none; 
 }
 
 .right_side {
@@ -87,12 +90,33 @@ body {
     transform: translateY(-20px);
     background: -webkit-linear-gradient(90deg, #f7b63f, #faf879);
     -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text
+    -webkit-background-clip: text;
+    background-clip: none; 
 }
 
 .seconds {
     transform: translateY(16px);
     background: -webkit-linear-gradient(90deg, #24ff6d, #2f93f1);
     -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text
+    -webkit-background-clip: text;
+    background-clip: none; 
+}
+
+.calendar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em;
+    font-weight: 500;
+    margin-bottom: 5px;
+    background: -webkit-linear-gradient(90deg, #ae4af6, #ff98d1);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: none; 
+}
+
+.day_name, 
+.day_number, 
+.year {
+    margin-left: 8px ;
 }
