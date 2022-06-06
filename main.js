@@ -1,4 +1,21 @@
-// Get current date 
+//------ SWITCH CLOCK FORMAT --------
+
+const formatSwitchButton = document.querySelector(".format_switch_button");
+
+formatSwitchButton.addEventListener('click', () => {
+    formatSwitchButton.classList.toggle("active");
+
+    var formatValue = formatSwitchButton.getAttribute("data-format");
+
+    if (formatValue === "12") {
+        formatSwitchButton.setAttribute("data-format", "24")
+    } else {
+        formatSwitchButton.setAttribute("data-format", "12")
+    }
+})
+
+
+//----- SYNCING TIME & DATE --------
 
 function clock() {
     const today = new Date();
@@ -15,7 +32,11 @@ function clock() {
     period = hours > 12 ? "PM" : "AM"
 
     // Set the 12-hour clock format 
-    hours = hours > 12 ? hours % 12 : hours;
+    var formatValue = formatSwitchButton.getAttribute("data-format");
+
+    if (formatValue === "12") {
+        hours = hours > 12 ? hours % 12 : hours;
+    }
 
     // Add the 0 for the values lower than 10 
     hours = hours < 10 ? "0" + hours : hours
@@ -47,3 +68,20 @@ function clock() {
 }
 
 setInterval(clock, 1000)
+
+
+//----- DOT-MENU TOGGLE--------
+const dotMenuIcon = document.querySelector(".dot_menu_icon");
+const dotMenu = document.querySelector(".dot_menu");
+
+dotMenuIcon.addEventListener('click', () => {
+    dotMenu.classList.toggle("active")
+})
+
+// click anywhere on the screen to remove dot menu
+// call the addEventListener function on the document 
+document.addEventListener("click", (elem) => {
+    if(elem.target.id !== "active-menu") {
+        dotMenu.classList.remove("active")
+    }
+})

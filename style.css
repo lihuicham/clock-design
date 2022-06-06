@@ -29,6 +29,20 @@ body {
     flex-direction: column;
 }
 
+.digital_clock:before {
+    content: '';
+    position: absolute;
+    background: linear-gradient(45deg, #24ff6d, #2f93f1, #ff5e9a);
+    background-size: 130% 170%;
+    top: -5px;
+    left: -5px;
+    bottom: -5px;
+    right: -5px;
+    z-index: -1;
+    filter: blur(20px);
+    animation: glowing 10s ease infinite;
+}
+
 .time {
     position: relative;
     display: flex;
@@ -119,4 +133,93 @@ body {
 .day_number, 
 .year {
     margin-left: 8px ;
+}
+
+.dot_menu_icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    color: #efefefb5;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.dot_menu_icon:hover {
+    transform: scale(1.25);
+    color: #FFF;
+}
+
+.dot_menu {
+    z-index: 999;
+    list-style: none;
+    background: #353e54;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+}
+
+.dot_menu.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock_format_text {
+    color: #efefef;
+    font-size: 0.9rem;
+    margin-right: 20px;
+}
+
+.format_switch_button {
+    width: 35px;
+    height: 15px;
+    background: #485470;
+    border-radius: 75px;
+    box-shadow: inset 2px 2px 4px rgba(225, 225, 225, 0.1),
+                inset -2px -2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.format_switch_button:before {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #ff5e9a;
+    border-radius: 50%;
+    box-shadow: 0 5px 25px #ff5e9a;
+    transform: translateX(-10px);
+    transition: .5s;
+}
+
+.format_switch_button.active:before {
+    background: #0bff8d;
+    box-shadow: 0 5px 25px #0bff8d;
+    transform: translateX(10px);
+}
+
+/*----- GLOWING ANIMATION -------*/
+
+@keyframes glowing {
+    0% {
+        background-position: 0 100%;
+    }
+    50% {
+        background-position: 100% 0%;
+    }
+
+    100% {
+        background-position: 0 100%;
+    }
 }
